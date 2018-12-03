@@ -21,7 +21,7 @@ def main():
 
     parser.add_argument('--xmin', type=float, default = 0, help='min x')
 
-    parser.add_argument('--xmax', type=float, default = 100, help='min x')
+    parser.add_argument('--xmax', type=float, default = 100, help='max x')
 
     parser.add_argument('--a', type=float, default = 10, help='a')
 
