@@ -3,7 +3,7 @@
     <tool>
         <title>Rotation Curve Calculator</title>
         <about>Press Simulate to view results.</about>
-        <command>python @tool/roation_curve.py @driver</command>
+        <command>python @tool/rotation_curve.py @driver</command>
     </tool>
     <input>
         <string id="formula">
