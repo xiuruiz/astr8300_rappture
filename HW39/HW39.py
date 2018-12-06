@@ -33,7 +33,7 @@ def main():
     xmax = float(io.get('input.number(max).current'))
     y0 = float(io.get('input.number(Y0).current'))
     npts = int(io.get('input.number(Npts).current'))
-    formula = io.get('input.string(formula).current')
+    formula = '1 + ' + io.get('input.string(formula).current')
 
     x = np.linspace(xmin, xmax, npts)
     sol = odeint(calc, y0, x, args=(1, formula))

@@ -24,6 +24,8 @@ Authors
 
 
 
+# Rotation Curve
+In this project, you could input the initial rmin (defult = 0), the outer radius rmax (defult = 10) and initial mass M0 (defult = 0), and the number of points you would like to calculate npt (defult = 100). You will also need to give a density &#xx3C1; (defult = 1) in 0.063 g/cm<sup>-3</sup>. You could also obtain the velocity in different radius. The radius is in solar radius (r = 6.96x10<sup>10</sup>cm) and the mass is in solar mass (m = 1.99x10<sup>33</sup>g), the velocity is in 437 km/s. 
 
 # Torus of AGNs (This part is contributed by Xiurui Zhao)
 
