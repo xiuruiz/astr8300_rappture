@@ -32,12 +32,10 @@ def main():
     rmin = float(io.get('input.number(min).current'))
     rmax = float(io.get('input.number(max).current'))
     M0 = float(io.get('input.number(M0).current'))
-#    theta = float(io.get('input.number(theta).current'))
     npts = int(io.get('input.number(Npts).current'))
     formula = io.get('input.string(formula).current')
 
     r = np.linspace(rmin, rmax, npts)
-    #sol = dblquad(lambda: x,theta: eval(formula) * x**2 * sin(theta),0,np.pi,lambda x:rmin,r)
     v = np.linspace(1,npts,npts)
     Mass = np.linspace(1,npts,npts)
 
