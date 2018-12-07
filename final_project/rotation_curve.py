@@ -38,7 +38,8 @@ def main():
 
     r = np.linspace(rmin, rmax, npts)
     #sol = dblquad(lambda: x,theta: eval(formula) * x**2 * sin(theta),0,np.pi,lambda x:rmin,r)
-    v = np.linspace(0,npts,npts)
+    v = np.linspace(1,npts,npts)
+    Mass = np.linspace(1,npts,npts)
 
     io.put('output.curve(result2).about.label','Mass vs r',append=0)
     io.put('output.curve(result2).yaxis.label','Mass')
@@ -49,12 +50,12 @@ def main():
     io.put('output.curve(result1).xaxis.label','r')
 
     for i in range(npts):
+        Mass[i] = dblquad(lambda theta,x: eval(formula) * x**2 * sin(theta),0,np.pi,lambda x:rmin,r[i])[0]
         io.put(
                'output.curve(result2).component.xy',
-               '%g %g\n' % (r[i],dblquad(lambda theta,x: eval(formula) * x**2 *
-                sin(theta),0,np.pi,lambda x:rmin,r[i])[0]), append=1
+               '%g %g\n' % (r[i],Mass[i]), append=1
               )
-        v[i] = (dblquad(lambda theta,x: eval(formula) * x**2 * sin(theta),0,np.pi,lambda x:rmin,r[i])[i]/r[i])**0.5
+        v[i] = (Mass[i]/r[i])**0.5
         io.put(
                'output.curve(result3).component.xy',
                '%g %g\n' % (r[i],v[i]), append=1
