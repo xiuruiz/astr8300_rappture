@@ -8,11 +8,11 @@
     <input>
         <string id="formula">
             <about>
-                <label>&#x3C1;(r)</label>
-                <hints>Example: r**(-2.25)</hints>
+                <label>&#x3C1;(r,theta)</label>
+                <hints>Example: r**(-2.25)*sin(theta)</hints>
             </about>
             <size>30x5</size>
-	    <default>r**(-2.25)</default>
+	    <default>r**(-2.25)*sin(theta)</default>
         </string>
         <number id="min">
             <about>
