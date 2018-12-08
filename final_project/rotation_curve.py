@@ -32,7 +32,6 @@ def main():
     npts = int(io.get('input.number(Npts).current'))
     formula = io.get('input.string(formula).current')
 
-#    r = np.linspace(rmin, rmax, npts)
     r1 = np.linspace(rmin, rmax, npts)
     theta1 = np.linspace(0,pi,npts)
     v = np.linspace(1,npts,npts)
@@ -45,10 +44,6 @@ def main():
     io.put('output.curve(result1).about.label','Density vs r',append=0)
     io.put('output.curve(result1).yaxis.label','Density')
     io.put('output.curve(result1).xaxis.label','r')
-
-#    io.put('output.curve(result4).about.label','Mass vs theta',append=0)
-#    io.put('output.curve(result4).yaxis.label','Mass')
-#    io.put('output.curve(result4).xaxis.label','theta')
 
     io.put('output.curve(result5).about.label','Density vs theta',append=0)
     io.put('output.curve(result5).yaxis.label','Density')
@@ -70,15 +65,6 @@ def main():
         io.put(
                'output.curve(result5).component.xy',
                '%g %g\n' % (theta1[i],f(1,theta1[i],formula)), append=1)
-#        Mass[i] = dblquad(lambda theta,r: sin(theta)*eval(formula) * r**2 ,rmin,1,lambda r:0,lambda r: theta1[i])[0]
-#        io.put('output.curve(result4).component.xy',
-#               '%g %g\n' % (theta1[i],Mass[i]), append=1
-#              )
-#        v[i] = (Mass[i]/r1[i])**0.5
-#        io.put(
-#               'output.curve(result6).component.xy',
-#               '%g %g\n' % (theta1[i],v[i]), append=1
-#              )
     io.put('output.curve(result3).about.label','Velocity vs r',append=0)
     io.put('output.curve(result3).yaxis.label','velocity')
     io.put('output.curve(result3).xaxis.label','r')
