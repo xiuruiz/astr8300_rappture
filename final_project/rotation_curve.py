@@ -20,7 +20,7 @@ import numpy as np
 from scipy.integrate import dblquad
 from scipy import optimize
 
-def f(r, formula):
+def f(r,theta,formula):
     return eval(formula)
 
 def main():
@@ -57,7 +57,7 @@ def main():
               )
         io.put(
                'output.curve(result1).component.xy',
-               '%g %g\n' % (r1[i],f(r1[i],formula)), append=1)
+               '%g %g\n' % (r1[i],f(r1[i],pi/2.,formula)), append=1)
     io.put('output.curve(result3).about.label','Velocity vs r',append=0)
     io.put('output.curve(result3).yaxis.label','velocity')
     io.put('output.curve(result3).xaxis.label','r')
