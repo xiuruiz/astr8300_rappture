@@ -20,11 +20,11 @@ import numpy as np
 from scipy.integrate import dblquad
 from scipy import optimize
 
-def f(r, formula):
+def f(r1, formula):
     return eval(formula)
 
 def calc(M, r, theta, formula):
-    return eval(formula) * r**2 * sin(theta)
+    return eval(formula) * r1**2 * sin(theta)
 
 def main():
     io = Rappture.library(sys.argv[1])
@@ -35,7 +35,8 @@ def main():
     npts = int(io.get('input.number(Npts).current'))
     formula = io.get('input.string(formula).current')
 
-    r = np.linspace(rmin, rmax, npts)
+#    r = np.linspace(rmin, rmax, npts)
+    r1 = np.linspace(rmin, rmax, npts)
     v = np.linspace(1,npts,npts)
     Mass = np.linspace(1,npts,npts)
 
@@ -48,19 +49,19 @@ def main():
     io.put('output.curve(result1).xaxis.label','r')
 
     for i in range(npts):
-        Mass[i] = dblquad(lambda theta,x: eval(formula) * x**2 * sin(theta),0,np.pi,lambda x:rmin,r[i])[0]
+        Mass[i] = dblquad(lambda theta,x: eval(formula) * x**2 * sin(theta),0,np.pi,lambda x:rmin,r1[i])[0]
         io.put(
                'output.curve(result2).component.xy',
-               '%g %g\n' % (r[i],Mass[i]), append=1
+               '%g %g\n' % (r1[i],Mass[i]), append=1
               )
-        v[i] = (Mass[i]/r[i])**0.5
+        v[i] = (Mass[i]/r1[i])**0.5
         io.put(
                'output.curve(result3).component.xy',
-               '%g %g\n' % (r[i],v[i]), append=1
+               '%g %g\n' % (r1[i],v[i]), append=1
               )
         io.put(
                'output.curve(result1).component.xy',
-               '%g %g\n' % (r[i],f(r[i], formula)), append=1)
+               '%g %g\n' % (r1[i],f(r[i], formula)), append=1)
     io.put('output.curve(result3).about.label','Velocity vs r',append=0)
     io.put('output.curve(result3).yaxis.label','velocity')
     io.put('output.curve(result3).xaxis.label','r')
