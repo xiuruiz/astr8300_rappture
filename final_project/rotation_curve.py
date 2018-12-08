@@ -20,11 +20,8 @@ import numpy as np
 from scipy.integrate import dblquad
 from scipy import optimize
 
-def f(r1, formula):
+def f(r, formula):
     return eval(formula)
-
-def calc(M, r, theta, formula):
-    return eval(formula) * r1**2 * sin(theta)
 
 def main():
     io = Rappture.library(sys.argv[1])
@@ -49,9 +46,8 @@ def main():
     io.put('output.curve(result1).xaxis.label','r')
 
     for i in range(npts):
-        Mass[i] = dblquad(lambda theta,x: eval(formula) * x**2 * sin(theta),0,np.pi,lambda x:rmin,r1[i])[0]
-        io.put(
-               'output.curve(result2).component.xy',
+        Mass[i] = dblquad(lambda theta,r: sin(theta)*eval(formula) * r**2 ,rmin,r1[i],lambda r:0,lambda r: pi)[0]
+        io.put('output.curve(result2).component.xy',
                '%g %g\n' % (r1[i],Mass[i]), append=1
               )
         v[i] = (Mass[i]/r1[i])**0.5
@@ -61,7 +57,7 @@ def main():
               )
         io.put(
                'output.curve(result1).component.xy',
-               '%g %g\n' % (r1[i],f(r[i], formula)), append=1)
+               '%g %g\n' % (r1[i],f(r1[i],formula)), append=1)
     io.put('output.curve(result3).about.label','Velocity vs r',append=0)
     io.put('output.curve(result3).yaxis.label','velocity')
     io.put('output.curve(result3).xaxis.label','r')
