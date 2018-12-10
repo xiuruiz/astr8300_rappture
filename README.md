@@ -11,7 +11,7 @@ You will need a computer with [rappture](https://nanohub.org/infrastructure/rapp
 * git clone https://github.com/xiuruiz/astr8300_rappture_rotation_curves.git
 * cd astr8300_rappture_rotation_curves
 * there are two folder: 1. 1D model 2. 3D model
-* e.g., cd final_project (3D model)
+* e.g., cd final_project_3D
 * rappture
 
 
