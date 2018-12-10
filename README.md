@@ -1,32 +1,35 @@
 Overview
 ========
 
-astr8300_rappture is a sample package for Astr8300 rappture projects
+astr8300_rappture_rotation_curve is one of the packages for Astr8300 rappture projects
 
 Installation
 ------------
 
 You will need a computer with [rappture](https://nanohub.org/infrastructure/rappture/) installed.  Type the following:
 
-* git clone http://github.com/mbradle/astr8300_rappture.git
-* cd astr8300_rappture
+* git clone https://github.com/xiuruiz/astr8300_rappture_rotation_curves.git
+* cd astr8300_rappture_rotation_curves
+* there are two folder: 1. 1D model 2. 3D model
+* e.g., cd final_project (3D model)
 * rappture
 
-Math
-----
-
-Here are some symbols:  &alpha;, &beta;, &gamma;, and &delta;.  And here is a reaction:  <sup>12</sup>C + <sup>4</sup>He &rarr; <sup>16</sup>O + &gamma;.  And here is an equation:  <b>F</b> = m<b>a</b>.
 
 Authors
 -------
 
-- Bradley S. Meyer <mbradle@clemson.edu>
-
+- Xiurui Zhao <xiuruiz@g.clemson.edu> and Bradley S. Meyer <mbradle@clemson.edu>
 
 
 # Rotation Curve
-In this project, you could input the initial rmin (defult = 0), the outer radius rmax (defult = 10) and initial mass M0 (defult = 0), and the number of points you would like to calculate npt (defult = 100). You will also need to give a density &#xx3C1; (defult = 1) in 0.063 g/cm<sup>-3</sup>. You could also obtain the velocity in different radius. The radius is in solar radius (r = 6.96x10<sup>10</sup>cm) and the mass is in solar mass (m = 1.99x10<sup>33</sup>g), the velocity is in 437 km/s. 
+In this project, you could find 1D model and 3D model for building rotation curve. 
 
-# Torus of AGNs (This part is contributed by Xiurui Zhao)
+In 1D model, you can input the inner radius rmin (defult = 0.1), the outer radius rmax (defult = 10), initial mass M0 (defult = 0), and the number of points you would like to draw in the figure, npt (defult = 100). You will also need to give a density distribution &#x3C1; (r) (defult = r**-2.5). Successfully inputting the above parameters and functions, you could obtain the density &#x3C1; at different radius, inner mass (M) at different radius velocity in different radius and the velocity (r) at different radius.
 
-The line-of-sight column density may differ from the global average column density of the torus, so in some models (e.g., <b>MYTorus</b>), the line-of-sight column density, N<sub>H,l.o.s.</sub>=N<sub>H</sub>[1-(c/a)<sup>2</sup>cos<sup>2</sup>&theta;<sub>obs</sub>]<sup>1/2</sup>, where N<sub>H</sub> is the equatorial column density of the torus, when &theta;<sub>obs</sub>=90&deg; and cos<sup>2</sup>&theta;<sub>obs</sub>=0; &theta;<sub>obs</sub> is the observing angle; <i>a</i> is the redius of the torus and <i>c</i> is the distance between the black hole and the center point of the torus. 
+In 3D model, you will have the same input parameters (rmin, rmax, M0 and npts). However, in 3D model you can input the polar angle (theta), such that the density distribution will be &#x3C1; (r,theta) (defult = r**-2.5 * sin(theta); here we assume a &#x3C6; symmetrical distribution). Successfully inputting the above parameters and functions, you could obtain the density &#x3C1; at different radius and different polar angle, inner mass (M) at different radius velocity in different radius and the velocity (v) at different radius.
+
+# Math
+![Image of torus] (https://github.com/xiuruiz/astr8300_rappture_rotation_curves/equations.png)
+
+# Outlook
+The 3D model is a spherical model, while we could add a cylinderical model with variables of radius (r) and height (z).
